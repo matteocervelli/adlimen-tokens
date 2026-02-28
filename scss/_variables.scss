@@ -1,0 +1,260 @@
+/* Theme Tokens */
+
+// SCSS Variables (for use within SCSS functions like darken(), rgba())
+// $al-teal: #008080; -> Removed as not used directly in SCSS functions
+// $al-navy: #34495E; -> Removed as not used directly in SCSS functions
+// $highlight-primary: $al-teal; -> Removed, use CSS variable directly
+
+// This file contains all the CSS custom properties (variables)
+// defined globally for the project.
+
+:root {
+  /* Font Size Scale */
+  --text-scale: 1;
+  --font-size-base: calc(1.5rem + 0.2vw);
+  --font-size-calc: calc(var(--font-size-base) * var(--text-scale));
+  --space-base: calc(1rem + 0.25vw);
+  --space-calc: calc(var(--space-base) * var(--text-scale));
+
+  /* Brand Colors */
+  --AL-teal: var(--color-teal-600);
+  --AL-navy: var(--color-navy-600);
+  --AL-gray: var(--color-gray-100);
+  --AL-steel: var(--color-gray-400);
+  --AL-black: var(--color-gray-950);
+  --AL-pure-white: #FFF;
+  --pure-white: var(--AL-pure-white); /* Alias for compatibility */
+  --AL-sand: var(--color-sand-100);
+  --AL-wet-sand: var(--color-sand-500);
+  --AL-red: var(--color-red-400);
+  --AL-magenta: var(--color-magenta-400);
+  --AL-orange: var(--color-orange-400);
+  --AL-purple: var(--color-purple-600);
+  --AL-green: var(--color-green-400);
+  --AL-yellow: var(--color-yellow-400);
+  --AL-blue: var(--color-blue-400);
+
+  /* Font Families */
+  --font-family-sans-serif: 'Raleway', sans-serif;
+  --font-family-serif: 'Lora', serif;
+  --font-primary: var(--font-family-sans-serif);
+  --font-secondary: var(--font-family-serif);
+  --font-headings: var(--font-family-serif);
+  --font-dyslexic: 'OpenDyslexic', var(--font-primary);
+  
+  /* Font sizes - Responsive Scale */
+  --font-size-normal: calc(var(--font-size-calc));     /* Base/Normal size */
+  --font-size-3xs: calc(var(--font-size-calc) * 0.6);          /* Extra small: -20% */
+  --font-size-2xs: calc(var(--font-size-calc) * 0.7);          /* Extra small: -20% */
+  --font-size-xs: calc(var(--font-size-calc) * 0.8);          /* Extra small: -20% */
+  --font-size-sm: calc(var(--font-size-calc) * 0.9);       /* Small: -10% */
+  --font-size-md: calc(var(--font-size-calc) * 1.1);       /* Medium: +10% */
+  --font-size-lg: calc(var(--font-size-calc) * 1.2);          /* Large: +20% */
+  --font-size-xl: calc(var(--font-size-calc) * 1.4);         /* Extra large: +40% */
+  --font-size-2xl: calc(var(--font-size-calc) * 1.6);         /* 2X Large: +60% */
+  --font-size-3xl: calc(var(--font-size-calc) * 1.8);      /* 3X Large: +80% */
+  --font-size-4xl: calc(var(--font-size-calc) * 2);           /* 4X Large: +100% */
+  --font-size-5xl: calc(var(--font-size-calc) * 2.4);           /* 5X Large: +120% */
+  --font-size-6xl: calc(var(--font-size-calc) * 2.8);           /* 6X Large: +140% */
+  --font-size-7xl: calc(var(--font-size-calc) * 3.2);           /* 7X Large: +160% */
+  --font-size-8xl: calc(var(--font-size-calc) * 3.6);           /* 8X Large: +180% */
+  --font-size-9xl: calc(var(--font-size-calc) * 4);           /* 9X Large: +200% */
+  --font-size-10xl: calc(var(--font-size-calc) * 4.4);           /* 10X Large: +220% */
+
+  /* Accent Colors */
+  --accent-primary: var(--AL-teal);
+  --accent-secondary: var(--AL-navy);
+  --accent-tertiary: var(--AL-steel);
+  --accent-quaternary: var(--AL-sand);
+  --accent-quinary: var(--AL-wet-sand);
+  --accent-senary: var(--AL-gray);
+  --accent-septenary: var(--AL-pure-white);
+  --accent-octonary: var(--AL-black);
+
+  /* Text on Accent Colors */
+  --text-on-accent-primary: var(--AL-pure-white);
+  --text-on-accent-secondary: var(--AL-pure-white);
+  --text-on-accent-tertiary: var(--AL-pure-white);
+  --text-on-accent-quaternary: var(--AL-black);
+  --text-on-accent-quinary: var(--AL-gray);
+  --text-on-accent-senary: var(--AL-black);
+  --text-on-accent-septenary: var(--AL-black);
+  --text-on-accent-octonary: var(--AL-pure-white);
+
+  /* Heading on Accent Colors */
+  --heading-on-accent-primary: var(--AL-gray);
+  --heading-on-accent-secondary: var(--AL-gray);
+  --heading-on-accent-tertiary: var(--AL-pure-white);
+  --heading-on-accent-quaternary: var(--AL-navy);
+  --heading-on-accent-quinary: var(--AL-gray);
+  --heading-on-accent-senary: var(--AL-navy);
+  --heading-on-accent-septenary: var(--AL-navy);
+  --heading-on-accent-octonary: var(--AL-gray);
+
+  /* Links & Actions (CSS Variables) */
+  --link-default: var(--AL-teal);
+  --link-hover: rgb(0 128 128 / 80%); // Note: Not using $al-teal SCSS var
+  --highlight-primary: var(--AL-teal);
+  --button-primary-background: var(--accent-primary);
+  --button-primary-text: var(--text-on-accent-primary);
+  --button-primary-border: var(--accent-primary);
+  --button-primary-hover-background: var(--text-on-accent-primary);
+  --button-primary-hover-text: var(--accent-primary);
+  --button-primary-hover-border: var(--accent-primary);
+  --button-secondary-background: var(--background-primary); // Assuming secondary button uses Navy
+  --button-secondary-text: var(--text-primary);
+  --button-secondary-border: var(--accent-tertiary);
+  --button-secondary-hover-background: var(--accent-tertiary);
+  --button-secondary-hover-text: var(--text-on-accent-tertiary);
+  --button-secondary-hover-border: var(--accent-tertiary);
+  --hover-primary: var(--AL-navy); // Define a hover color (e.g., Navy)
+
+  /* Specific Component Variables (Could be moved later if needed) */
+  --cta-primary: var(--accent-primary);
+  --cta-secondary: var(--accent-secondary);
+  --cta-primary-text: var(--text-on-accent-primary);
+  --cta-secondary-text: var(--text-on-accent-secondary);
+  --cta-primary-inverted-text: var(--AL-black);
+  --cta-secondary-inverted-text: var(--AL-black);
+  --icon-primary: var(--AL-navy); // Default icon color
+  --border-default: var(--AL-steel); // Default border color
+
+  /* Social Colors */
+  --linkedin-blue: #0A66C2;
+  --linkedin-blue-dark: #004182;
+
+  /* Card Variables */
+  --background-card: var(--AL-pure-white);
+  --border-card: var(--AL-steel);
+
+  /* Form Variables */
+  --background-input: var(--AL-pure-white);
+  --border-input: var(--AL-steel);
+  --text-placeholder: var(--AL-steel);
+  --input-focus: var(--AL-teal); // Color for border on focus
+
+  /* General Purpose */
+  --background-secondary: var(--AL-gray); // e.g., for search shortcut bg
+  --text-secondary: var(--AL-navy); // e.g., for search shortcut text, potentially other secondary text
+  --border-headings: var(--AL-navy); // Placeholder color used in newsletter
+
+  /* Table Variables */
+  --table-header-bg: var(--AL-gray); // Example: light gray
+  --table-row-hover: rgba(var(--AL-teal), 0.1); // Example: teal with opacity
+
+  /* Heading Variables */
+  --heading-primary: var(--AL-navy); // Default color for headings
+  --heading-secondary: var(--AL-teal); // Secondary color for headings (e.g., in panels)
+
+  /* Modal/Overlay Variables - REMOVED Generic, defined per theme */
+
+  /* --modal-overlay: rgba(var(--AL-black), 0.7); */ 
+
+  /* Alternating Section Variables */
+
+  /* Section 1 */
+  --background-section1: var(--accent-senary); // Light gray
+  --text-section1: var(--text-on-accent-senary); // Default text
+  --heading-section1: var(--text-on-accent-senary); // Default heading
+
+  /* Section 2 */
+  --background-section2: var(--accent-quaternary); // Navy background
+  --text-section2: var(--text-on-accent-quaternary); // White text
+  --heading-section2: var(--heading-on-accent-quaternary); // White heading
+
+  /* Section 3 */
+  --background-section3: var(--accent-septenary); // Sand background
+  --text-section3: var(--text-on-accent-septenary); // Navy text
+  --heading-section3: var(--heading-on-accent-septenary); // Navy heading
+  --text-primary-rgb: 27, 38, 49; // Assuming AL-black
+  --text-secondary-rgb: 52, 73, 94; // Assuming AL-navy
+  --highlight-primary-rgb: 0, 128, 128; // Assuming AL-teal
+  --color-error: var(--AL-red);
+
+
+  /* Spacing System */
+  --space-normal: calc(var(--space-calc));
+  --space-3s: calc(var(--space-calc) * 0.125);
+  --space-2xs: calc(var(--space-calc) * 0.25);
+  --space-xs: calc(var(--space-calc) * 0.5);
+  --space-sm: calc(var(--space-calc) * 0.75);
+  --space-md: calc(var(--space-calc) * 1.25);
+  --space-lg: calc(var(--space-calc) * 1.5);
+  --space-xl: calc(var(--space-calc) * 2);
+  --space-2xl: calc(var(--space-calc) * 3);
+  --space-3xl: calc(var(--space-calc) * 4);
+  --space-4xl: calc(var(--space-calc) * 5);
+  --space-5xl: calc(var(--space-calc) * 6);
+  --space-6xl: calc(var(--space-calc) * 7);
+  --space-7xl: calc(var(--space-calc) * 8);
+  --space-8xl: calc(var(--space-calc) * 9);
+  --space-9xl: calc(var(--space-calc) * 10);
+  --space-10xl: calc(var(--space-calc) * 11);
+
+
+  /* Font Weight */
+  --font-weight-thin: 100;
+  --font-weight-extralight: 200;
+  --font-weight-light: 300;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --font-weight-extrabold: 800;
+  --font-weight-black: 900;
+  
+  // Semantic font weights
+  --font-weight-heading: var(--font-weight-bold);
+  --font-weight-body: var(--font-weight-normal);
+  --font-weight-strong: var(--font-weight-semibold);
+  --font-weight-emphasis: var(--font-weight-medium);
+
+  /* Border Radius */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+  
+  /* Transitions */
+  --transition-fast: 150ms ease;
+  --transition-normal: 300ms ease;
+
+  /* Box Shadows */
+  --box-shadow-light: 0 2px 8px rgb(0 0 0 / 5%);
+  --box-shadow-sm: 0 2px 4px rgb(0 0 0 / 10%);
+  --box-shadow-md: 0 4px 6px rgb(0 0 0 / 10%);
+  --box-shadow-lg: 0 5px 15px rgb(0 0 0 / 10%);
+  --box-shadow-xl: 0 8px 24px rgb(0 0 0 / 15%);
+
+  /* Icons */
+  --icon-size: 24px;
+  --icon-button-size: 40px;
+  --icon-button-radius: 8px;
+  --icon-button-background: var(--button-primary);
+  --icon-button-color: var(--AL-pure-white);
+
+  /* Elementi responsive */
+  --font-content: -apple-system, blinkmacsystemfont, "Inter", "IBM Plex Sans", segoe ui, helvetica, arial, sans-serif;
+
+  // --font-ui: var(--font-primary); -> Removed, use --font-primary directly
+  --font-mono: ui-monospace, sfmono-regular, "Cascadia Code", "IBM Plex Mono", "Roboto Mono", "DejaVu Sans Mono", "Liberation Mono", menlo, monaco, "Consolas", "Source Code Pro", monospace;
+
+  // --border-radius: 4px; -> Removed, use --radius-sm
+  // --font-small: 0.875em; -> Removed, use font scale variables like --font-size-xs or --font-size-sm
+  // --font-smaller: 0.8em; -> Removed, use font scale variables like --font-size-xs
+  --wrap-wide: 120em;
+  --wrap-normal: 60em;
+  --wrap-documentation: 80em;
+  --wrap-max: 1200px; // Max width for banner/modal content
+  --input-width: 20em;
+  
+  /* List Responsive Padding */
+  --list-padding-base: calc(3rem + 0.5vw); // Base padding with responsive component
+  --list-padding: calc(var(--list-padding-base) * var(--text-scale)); // Scales with text scale
+
+  // --image-radius: 6px; -> Removed, use --radius-sm or --radius-md
+  --line-height: 1.5;
+  --line-height-tight: 1.3;
+  --line-height-loose: 1.7;
+  --AL-pure-white-rgb: 255, 255, 255;
+  --error-red-rgb: 220, 53, 69; // For toast error
+} 
