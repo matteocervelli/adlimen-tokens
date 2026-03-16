@@ -1,0 +1,30 @@
+meta:
+  project: adlimen-tokens
+  mode: internal
+  docs_base: docs/user-guide
+  last_audit: 2026-03-16
+
+docs:
+  readme:
+    file: docs/user-guide/README.md
+    type: reference
+    feature: index
+    last_updated: 2026-03-16
+    status: published
+    linked_version: "0.1.0"
+
+  getting-started:
+    file: docs/user-guide/getting-started.md
+    type: getting-started
+    feature: onboarding
+    last_updated: 2026-03-16
+    status: published
+    linked_version: "0.1.0"
+
+  api-reference:
+    file: docs/user-guide/api-reference.md
+    type: api-reference
+    feature: reference
+    last_updated: 2026-03-16
+    status: published
+    linked_version: "0.1.0"
