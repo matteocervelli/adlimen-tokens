@@ -1,6 +1,6 @@
 /**
- * Core Events System - Sistema centralizzato di gestione eventi
- * Ad Limen Consulting - 2024
+ * Core Events System — centralised event bus
+ * Ad Limen Consulting - 2026
  */
 
 class EventEmitter {
@@ -19,7 +19,7 @@ class EventEmitter {
   off(eventName, handler) {
     if (!this.events.has(eventName)) return;
     this.events.get(eventName).delete(handler);
-    
+
     if (this.events.get(eventName).size === 0) {
       this.events.delete(eventName);
     }
@@ -27,12 +27,15 @@ class EventEmitter {
 
   emit(eventName, data) {
     if (!this.events.has(eventName)) return;
-    
-    this.events.get(eventName).forEach(handler => {
+
+    this.events.get(eventName).forEach((handler) => {
       try {
         handler(data);
       } catch (error) {
-        console.error(`[Events] Errore nell'handler per l'evento ${eventName}:`, error);
+        console.error(
+          `[Events] Error in handler for event "${eventName}":`,
+          error,
+        );
       }
     });
   }
@@ -52,4 +55,4 @@ class EventEmitter {
   }
 }
 
-export { EventEmitter }; 
+export { EventEmitter };

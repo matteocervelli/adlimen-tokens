@@ -1,9 +1,9 @@
 /**
- * Core Utils - Funzioni di utilità comuni
- * Ad Limen Consulting - 2024
+ * Core Utils — common utility functions
+ * Ad Limen Consulting - 2026
  */
 
-// Funzione per debounce
+// Debounce: delays invoking func until after wait ms have elapsed since the last call
 export function debounce(func, wait = 300) {
   let timeout;
 
@@ -18,7 +18,7 @@ export function debounce(func, wait = 300) {
   };
 }
 
-// Funzione per throttle
+// Throttle: ensures func is called at most once per limit ms
 export function throttle(func, limit = 300) {
   let inThrottle;
 
@@ -31,7 +31,7 @@ export function throttle(func, limit = 300) {
   };
 }
 
-// Funzione per deep clone di oggetti
+// Deep clone: returns a new object with no shared references
 export function deepClone(obj) {
   if (obj === null || typeof obj !== "object") {
     return obj;
@@ -46,7 +46,7 @@ export function deepClone(obj) {
   );
 }
 
-// Funzione per merge profondo di oggetti
+// Deep merge: recursively merges sources into target (mutates target)
 export function deepMerge(target, ...sources) {
   if (!sources.length) return target;
 
@@ -57,7 +57,7 @@ export function deepMerge(target, ...sources) {
   if (target === null || target === undefined)
     return deepMerge({}, source, ...sources);
 
-  // Verifica che siano entrambi oggetti (ma non null, array o altri tipi)
+  // Only merge plain objects; skip null, arrays, and other types
   if (
     typeof target === "object" &&
     typeof source === "object" &&
@@ -89,12 +89,12 @@ export function deepMerge(target, ...sources) {
   return deepMerge(target, ...sources);
 }
 
-// Funzione per generare un ID univoco
+// Generate a unique ID with an optional prefix
 export function generateId(prefix = "") {
   return `${prefix}${Date.now()}-${Math.random().toString(36).slice(2, 11)}`;
 }
 
-// Funzione per validare un valore numerico
+// Validate a numeric value and clamp it to [min, max]; returns defaultValue if not a number
 export function validateNumber(value, min, max, defaultValue) {
   const num = parseFloat(value);
 
@@ -113,12 +113,12 @@ export function validateNumber(value, min, max, defaultValue) {
   return num;
 }
 
-// Funzione per formattare una percentuale
+// Format a 0–1 ratio as a percentage string (e.g. 0.42 → "42%")
 export function formatPercentage(value, decimals = 0) {
   return `${(value * 100).toFixed(decimals)}%`;
 }
 
-// Funzione per verificare il supporto a una feature del browser
+// Check whether a named browser feature is available at runtime
 export function isFeatureSupported(feature) {
   const features = {
     localStorage: () => {
@@ -139,12 +139,12 @@ export function isFeatureSupported(feature) {
   return features[feature] ? features[feature]() : false;
 }
 
-// Funzione per gestire errori in modo consistente
+// Consistent error handler — logs to console and returns a structured error object
 export function handleError(error, context = "") {
   const errorMessage = error instanceof Error ? error.message : String(error);
   console.error(`[${context}] ${errorMessage}`);
 
-  // Qui potremmo aggiungere in futuro logging remoto o altre azioni
+  // Remote logging or other side effects can be added here
   return {
     success: false,
     error: errorMessage,
@@ -152,7 +152,7 @@ export function handleError(error, context = "") {
   };
 }
 
-// Funzione per caricare script in modo asincrono
+// Dynamically load an external script and return a promise
 export function loadScript(src, { async = true, defer = false } = {}) {
   return new Promise((resolve, reject) => {
     const script = document.createElement("script");
@@ -167,7 +167,7 @@ export function loadScript(src, { async = true, defer = false } = {}) {
   });
 }
 
-// Funzione per gestire le media query in modo reattivo
+// Reactive media-query listener — fires callback on match change and returns a cleanup fn
 export function createMediaQueryListener(query, callback) {
   const mediaQuery = window.matchMedia(query);
 
