@@ -23,7 +23,7 @@ class Storage {
 
       localStorage.setItem(fullKey, JSON.stringify(value));
 
-      if (oldValue !== value) {
+      if (JSON.stringify(oldValue) !== JSON.stringify(value)) {
         this.events.emit(this.STORAGE_CHANGE_EVENT, {
           key,
           oldValue,
