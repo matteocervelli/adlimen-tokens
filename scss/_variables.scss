@@ -22,7 +22,7 @@
   --AL-gray: var(--color-gray-100);
   --AL-steel: var(--color-gray-400);
   --AL-black: var(--color-gray-950);
-  --AL-pure-white: #FFF;
+  --AL-pure-white: #fff;
   --pure-white: var(--AL-pure-white); /* Alias for compatibility */
   --AL-sand: var(--color-sand-100);
   --AL-wet-sand: var(--color-sand-500);
@@ -35,31 +35,31 @@
   --AL-blue: var(--color-blue-400);
 
   /* Font Families */
-  --font-family-sans-serif: 'Raleway', sans-serif;
-  --font-family-serif: 'Lora', serif;
+  --font-family-sans-serif: "Raleway", sans-serif;
+  --font-family-serif: "Lora", serif;
   --font-primary: var(--font-family-sans-serif);
   --font-secondary: var(--font-family-serif);
   --font-headings: var(--font-family-serif);
-  --font-dyslexic: 'OpenDyslexic', var(--font-primary);
-  
+  --font-dyslexic: "OpenDyslexic", var(--font-primary);
+
   /* Font sizes - Responsive Scale */
-  --font-size-normal: calc(var(--font-size-calc));     /* Base/Normal size */
-  --font-size-3xs: calc(var(--font-size-calc) * 0.6);          /* Extra small: -20% */
-  --font-size-2xs: calc(var(--font-size-calc) * 0.7);          /* Extra small: -20% */
-  --font-size-xs: calc(var(--font-size-calc) * 0.8);          /* Extra small: -20% */
-  --font-size-sm: calc(var(--font-size-calc) * 0.9);       /* Small: -10% */
-  --font-size-md: calc(var(--font-size-calc) * 1.1);       /* Medium: +10% */
-  --font-size-lg: calc(var(--font-size-calc) * 1.2);          /* Large: +20% */
-  --font-size-xl: calc(var(--font-size-calc) * 1.4);         /* Extra large: +40% */
-  --font-size-2xl: calc(var(--font-size-calc) * 1.6);         /* 2X Large: +60% */
-  --font-size-3xl: calc(var(--font-size-calc) * 1.8);      /* 3X Large: +80% */
-  --font-size-4xl: calc(var(--font-size-calc) * 2);           /* 4X Large: +100% */
-  --font-size-5xl: calc(var(--font-size-calc) * 2.4);           /* 5X Large: +120% */
-  --font-size-6xl: calc(var(--font-size-calc) * 2.8);           /* 6X Large: +140% */
-  --font-size-7xl: calc(var(--font-size-calc) * 3.2);           /* 7X Large: +160% */
-  --font-size-8xl: calc(var(--font-size-calc) * 3.6);           /* 8X Large: +180% */
-  --font-size-9xl: calc(var(--font-size-calc) * 4);           /* 9X Large: +200% */
-  --font-size-10xl: calc(var(--font-size-calc) * 4.4);           /* 10X Large: +220% */
+  --font-size-normal: calc(var(--font-size-calc)); /* Base/Normal size */
+  --font-size-3xs: calc(var(--font-size-calc) * 0.6); /* Extra small: -20% */
+  --font-size-2xs: calc(var(--font-size-calc) * 0.7); /* Extra small: -20% */
+  --font-size-xs: calc(var(--font-size-calc) * 0.8); /* Extra small: -20% */
+  --font-size-sm: calc(var(--font-size-calc) * 0.9); /* Small: -10% */
+  --font-size-md: calc(var(--font-size-calc) * 1.1); /* Medium: +10% */
+  --font-size-lg: calc(var(--font-size-calc) * 1.2); /* Large: +20% */
+  --font-size-xl: calc(var(--font-size-calc) * 1.4); /* Extra large: +40% */
+  --font-size-2xl: calc(var(--font-size-calc) * 1.6); /* 2X Large: +60% */
+  --font-size-3xl: calc(var(--font-size-calc) * 1.8); /* 3X Large: +80% */
+  --font-size-4xl: calc(var(--font-size-calc) * 2); /* 4X Large: +100% */
+  --font-size-5xl: calc(var(--font-size-calc) * 2.4); /* 5X Large: +120% */
+  --font-size-6xl: calc(var(--font-size-calc) * 2.8); /* 6X Large: +140% */
+  --font-size-7xl: calc(var(--font-size-calc) * 3.2); /* 7X Large: +160% */
+  --font-size-8xl: calc(var(--font-size-calc) * 3.6); /* 8X Large: +180% */
+  --font-size-9xl: calc(var(--font-size-calc) * 4); /* 9X Large: +200% */
+  --font-size-10xl: calc(var(--font-size-calc) * 4.4); /* 10X Large: +220% */
 
   /* Accent Colors */
   --accent-primary: var(--AL-teal);
@@ -101,7 +101,9 @@
   --button-primary-hover-background: var(--text-on-accent-primary);
   --button-primary-hover-text: var(--accent-primary);
   --button-primary-hover-border: var(--accent-primary);
-  --button-secondary-background: var(--background-primary); // Assuming secondary button uses Navy
+  --button-secondary-background: var(
+    --background-primary
+  ); // Assuming secondary button uses Navy
   --button-secondary-text: var(--text-primary);
   --button-secondary-border: var(--accent-tertiary);
   --button-secondary-hover-background: var(--accent-tertiary);
@@ -120,7 +122,7 @@
   --border-default: var(--AL-steel); // Default border color
 
   /* Social Colors */
-  --linkedin-blue: #0A66C2;
+  --linkedin-blue: #0a66c2;
   --linkedin-blue-dark: #004182;
 
   /* Card Variables */
@@ -135,7 +137,9 @@
 
   /* General Purpose */
   --background-secondary: var(--AL-gray); // e.g., for search shortcut bg
-  --text-secondary: var(--AL-navy); // e.g., for search shortcut text, potentially other secondary text
+  --text-secondary: var(
+    --AL-navy
+  ); // e.g., for search shortcut text, potentially other secondary text
   --border-headings: var(--AL-navy); // Placeholder color used in newsletter
 
   /* Table Variables */
@@ -144,11 +148,13 @@
 
   /* Heading Variables */
   --heading-primary: var(--AL-navy); // Default color for headings
-  --heading-secondary: var(--AL-teal); // Secondary color for headings (e.g., in panels)
+  --heading-secondary: var(
+    --AL-teal
+  ); // Secondary color for headings (e.g., in panels)
 
   /* Modal/Overlay Variables - REMOVED Generic, defined per theme */
 
-  /* --modal-overlay: rgba(var(--AL-black), 0.7); */ 
+  /* --modal-overlay: rgba(var(--AL-black), 0.7); */
 
   /* Alternating Section Variables */
 
@@ -171,7 +177,6 @@
   --highlight-primary-rgb: 0, 128, 128; // Assuming AL-teal
   --color-error: var(--AL-red);
 
-
   /* Spacing System */
   --space-normal: calc(var(--space-calc));
   --space-3s: calc(var(--space-calc) * 0.125);
@@ -191,7 +196,6 @@
   --space-9xl: calc(var(--space-calc) * 10);
   --space-10xl: calc(var(--space-calc) * 11);
 
-
   /* Font Weight */
   --font-weight-thin: 100;
   --font-weight-extralight: 200;
@@ -202,7 +206,7 @@
   --font-weight-bold: 700;
   --font-weight-extrabold: 800;
   --font-weight-black: 900;
-  
+
   // Semantic font weights
   --font-weight-heading: var(--font-weight-bold);
   --font-weight-body: var(--font-weight-normal);
@@ -213,7 +217,7 @@
   --radius-sm: 4px;
   --radius-md: 8px;
   --radius-lg: 16px;
-  
+
   /* Transitions */
   --transition-fast: 150ms ease;
   --transition-normal: 300ms ease;
@@ -227,16 +231,21 @@
 
   /* Icons */
   --icon-size: 24px;
-  --icon-button-size: 40px;
+  --icon-button-size: 44px; // WCAG 2.5.5 minimum touch target
   --icon-button-radius: 8px;
   --icon-button-background: var(--button-primary);
   --icon-button-color: var(--AL-pure-white);
 
   /* Elementi responsive */
-  --font-content: -apple-system, blinkmacsystemfont, "Inter", "IBM Plex Sans", segoe ui, helvetica, arial, sans-serif;
+  --font-content:
+    -apple-system, blinkmacsystemfont, "Inter", "IBM Plex Sans", segoe ui,
+    helvetica, arial, sans-serif;
 
   // --font-ui: var(--font-primary); -> Removed, use --font-primary directly
-  --font-mono: ui-monospace, sfmono-regular, "Cascadia Code", "IBM Plex Mono", "Roboto Mono", "DejaVu Sans Mono", "Liberation Mono", menlo, monaco, "Consolas", "Source Code Pro", monospace;
+  --font-mono:
+    ui-monospace, sfmono-regular, "Cascadia Code", "IBM Plex Mono",
+    "Roboto Mono", "DejaVu Sans Mono", "Liberation Mono", menlo, monaco,
+    "Consolas", "Source Code Pro", monospace;
 
   // --border-radius: 4px; -> Removed, use --radius-sm
   // --font-small: 0.875em; -> Removed, use font scale variables like --font-size-xs or --font-size-sm
@@ -246,10 +255,14 @@
   --wrap-documentation: 80em;
   --wrap-max: 1200px; // Max width for banner/modal content
   --input-width: 20em;
-  
+
   /* List Responsive Padding */
-  --list-padding-base: calc(3rem + 0.5vw); // Base padding with responsive component
-  --list-padding: calc(var(--list-padding-base) * var(--text-scale)); // Scales with text scale
+  --list-padding-base: calc(
+    3rem + 0.5vw
+  ); // Base padding with responsive component
+  --list-padding: calc(
+    var(--list-padding-base) * var(--text-scale)
+  ); // Scales with text scale
 
   // --image-radius: 6px; -> Removed, use --radius-sm or --radius-md
   --line-height: 1.5;
@@ -257,4 +270,4 @@
   --line-height-loose: 1.7;
   --AL-pure-white-rgb: 255, 255, 255;
   --error-red-rgb: 220, 53, 69; // For toast error
-} 
+}
