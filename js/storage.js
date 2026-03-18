@@ -1,15 +1,15 @@
 /**
- * Core Storage System - Sistema unificato per la gestione dello storage
- * Ad Limen Consulting - 2024
+ * Core Storage System — namespaced localStorage wrapper with change events
+ * Ad Limen Consulting - 2026
  */
 
-import { EventEmitter } from './events.js';
+import { EventEmitter } from "./events.js";
 
 class Storage {
-  constructor(namespace = '') {
+  constructor(namespace = "") {
     this.events = new EventEmitter();
-    this.KEY_PREFIX = `adlimen_${namespace ? namespace + '_' : ''}`;
-    this.STORAGE_CHANGE_EVENT = 'storage:change';
+    this.KEY_PREFIX = `adlimen_${namespace ? namespace + "_" : ""}`;
+    this.STORAGE_CHANGE_EVENT = "storage:change";
   }
 
   getFullKey(key) {
@@ -20,20 +20,20 @@ class Storage {
     try {
       const fullKey = this.getFullKey(key);
       const oldValue = this.get(key);
-      
+
       localStorage.setItem(fullKey, JSON.stringify(value));
-      
-      if (oldValue !== value) {
+
+      if (JSON.stringify(oldValue) !== JSON.stringify(value)) {
         this.events.emit(this.STORAGE_CHANGE_EVENT, {
           key,
           oldValue,
-          newValue: value
+          newValue: value,
         });
       }
-      
+
       return true;
     } catch (error) {
-      console.error(`[Storage] Errore nel salvataggio della chiave ${key}:`, error);
+      console.error(`[Storage] Error saving key "${key}":`, error);
       return false;
     }
   }
@@ -42,10 +42,10 @@ class Storage {
     try {
       const fullKey = this.getFullKey(key);
       const value = localStorage.getItem(fullKey);
-      
+
       return value !== null ? JSON.parse(value) : defaultValue;
     } catch (error) {
-      console.error(`[Storage] Errore nella lettura della chiave ${key}:`, error);
+      console.error(`[Storage] Error reading key "${key}":`, error);
       return defaultValue;
     }
   }
@@ -54,18 +54,18 @@ class Storage {
     try {
       const fullKey = this.getFullKey(key);
       const oldValue = this.get(key);
-      
+
       localStorage.removeItem(fullKey);
-      
+
       this.events.emit(this.STORAGE_CHANGE_EVENT, {
         key,
         oldValue,
-        newValue: null
+        newValue: null,
       });
-      
+
       return true;
     } catch (error) {
-      console.error(`[Storage] Errore nella rimozione della chiave ${key}:`, error);
+      console.error(`[Storage] Error removing key "${key}":`, error);
       return false;
     }
   }
@@ -88,7 +88,7 @@ class Storage {
 
   clear() {
     const keysToRemove = this.keys();
-    keysToRemove.forEach(key => this.remove(key));
+    keysToRemove.forEach((key) => this.remove(key));
   }
 
   onChange(handler) {
@@ -96,4 +96,4 @@ class Storage {
   }
 }
 
-export { Storage }; 
+export { Storage };

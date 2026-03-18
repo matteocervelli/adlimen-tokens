@@ -6,6 +6,8 @@ Versioning: [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+## [0.1.0] - 2026-03-16
+
 ### Added
 
 - Full color palette as CSS custom properties (`--color-*`) — 11 palettes, 13 shades each (`_adlimen-colors.scss`)
