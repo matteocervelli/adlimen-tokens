@@ -247,7 +247,7 @@ Base: `--space-base: calc(1rem + 0.25vw)` × `--text-scale`.
 | Token                  | Value       |
 | ---------------------- | ----------- |
 | `--icon-size`          | 24px        |
-| `--icon-button-size`   | 40px        |
+| `--icon-button-size`   | 44px        |
 | `--icon-button-radius` | 8px         |
 | `--icon-primary`       | `--AL-navy` |
 
