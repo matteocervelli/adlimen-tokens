@@ -10,6 +10,12 @@ Shared design tokens library for the Ad Limen ecosystem. Used by Hugo static sit
 - `js/storage.js` — namespaced localStorage wrapper
 - `js/utils.js` — debounce, throttle, deepClone, deepMerge, generateId, etc.
 
+## Project docs
+
+- `ROADMAP.md` — planned versions and shipped items
+- `TECH-STACK.md` — language stack, consumption patterns, constraints
+- `CHANGELOG.md` — version history (Keep a Changelog format)
+
 ## Conventions
 
 - No build step — raw SCSS and ESM JS, consumed directly by Hugo via submodule or copy.
