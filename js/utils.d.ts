@@ -3,12 +3,14 @@
  * Ad Limen Consulting - 2026
  */
 
-export declare function debounce<T extends (...args: unknown[]) => void>(
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export declare function debounce<T extends (...args: any[]) => void>(
   func: T,
   wait?: number,
 ): (...args: Parameters<T>) => void;
 
-export declare function throttle<T extends (...args: unknown[]) => void>(
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export declare function throttle<T extends (...args: any[]) => void>(
   func: T,
   limit?: number,
 ): (...args: Parameters<T>) => void;
