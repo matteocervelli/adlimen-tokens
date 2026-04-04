@@ -1,0 +1,93 @@
+# =============================================================================
+# CI for adlimen-tokens — JS/SCSS design tokens library
+#
+# Checks: exports exist, JS files parseable, SCSS files present
+# Hard-fail jobs: validate
+# Notify: Telegram topic via repo secrets TELEGRAM_BOT_TOKEN/CHAT_ID/TOPIC_ID
+# =============================================================================
+
+name: CI
+
+on:
+  push:
+    branches: [main, "feature/**", "fix/**"]
+    tags: ["v*.*.*"]
+  pull_request:
+    branches: [main]
+
+jobs:
+  # ===========================================================================
+  # Validate — check declared exports exist on disk
+  # ===========================================================================
+  validate:
+    name: Validate exports
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Check declared exports exist
+        run: |
+          node -e "
+          const pkg = require('./package.json');
+          const fs = require('fs');
+          const exports = pkg.exports || {};
+          let ok = true;
+          for (const [key, path] of Object.entries(exports)) {
+            if (!fs.existsSync(path.replace('./', ''))) {
+              console.error('MISSING export:', key, '->', path);
+              ok = false;
+            } else {
+              console.log('OK:', key, '->', path);
+            }
+          }
+          process.exit(ok ? 0 : 1);
+          "
+
+      - name: Check JS files are valid modules
+        run: |
+          for f in js/*.js; do
+            node --input-type=module < "$f" 2>&1 && echo "OK: $f" || { echo "FAIL: $f"; exit 1; }
+          done
+
+  # ===========================================================================
+  # Notify — Telegram
+  # ===========================================================================
+  notify:
+    needs: [validate]
+    runs-on: ubuntu-latest
+    if: always()
+    steps:
+      - name: Send Telegram notification
+        env:
+          TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          TELEGRAM_TOPIC_ID: ${{ secrets.TELEGRAM_TOPIC_ID }}
+        run: |
+          if [ -z "${TELEGRAM_TOKEN}" ] || [ -z "${TELEGRAM_CHAT_ID}" ]; then
+            echo "Telegram not configured, skipping"; exit 0
+          fi
+          REPO=$(echo "${{ github.repository }}" | cut -d/ -f2)
+          REF="${GITHUB_REF#refs/heads/}"
+          REF="${REF#refs/tags/}"
+          SHORT_SHA="${{ github.sha }}"
+          SHORT_SHA="${SHORT_SHA:0:8}"
+          RUN_URL="https://git.adlimen.dev/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+
+          if [ "${{ needs.validate.result }}" = "failure" ]; then
+            MSG=$(printf '❌ *%s* CI failed\nRef: `%s` · `%s`\n[View run](%s)' "$REPO" "$REF" "$SHORT_SHA" "$RUN_URL")
+          else
+            MSG=$(printf '✅ *%s* CI passed\nRef: `%s` · `%s`\n[View run](%s)' "$REPO" "$REF" "$SHORT_SHA" "$RUN_URL")
+          fi
+
+          TOPIC_PARAM=""
+          [ -n "${TELEGRAM_TOPIC_ID}" ] && TOPIC_PARAM="-d message_thread_id=${TELEGRAM_TOPIC_ID}"
+
+          curl -sf -X POST "https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendMessage" \
+            -d chat_id="${TELEGRAM_CHAT_ID}" ${TOPIC_PARAM} \
+            -d parse_mode="Markdown" \
+            --data-urlencode "text=${MSG}" || echo "Telegram notification failed (non-fatal)"
