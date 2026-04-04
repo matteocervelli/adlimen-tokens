@@ -76,7 +76,7 @@ jobs:
           REF="${REF#refs/tags/}"
           SHORT_SHA="${{ github.sha }}"
           SHORT_SHA="${SHORT_SHA:0:8}"
-          RUN_URL="https://git.adlimen.dev/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+          RUN_URL="https://git.adlimen.dev/${{ github.repository }}/actions/runs/${{ github.run_number }}"
 
           if [ "${{ needs.validate.result }}" = "failure" ]; then
             MSG=$(printf '❌ *%s* CI failed\nRef: `%s` · `%s`\n[View run](%s)' "$REPO" "$REF" "$SHORT_SHA" "$RUN_URL")

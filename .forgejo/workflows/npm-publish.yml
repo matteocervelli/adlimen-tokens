@@ -86,7 +86,7 @@ jobs:
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
           TELEGRAM_TOPIC_ID: ${{ secrets.TELEGRAM_TOPIC_ID }}
           REPO: ${{ github.repository }}
-          RUN_ID: ${{ github.run_id }}
+          RUN_ID: ${{ github.run_number }}
         run: |
           if [ -z "${TELEGRAM_TOKEN}" ] || [ -z "${TELEGRAM_CHAT_ID}" ]; then
             echo "Telegram not configured, skipping"; exit 0
