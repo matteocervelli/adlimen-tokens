@@ -51,7 +51,7 @@ jobs:
       - name: Check JS files are valid modules
         run: |
           for f in js/*.js; do
-            node --input-type=module < "$f" 2>&1 && echo "OK: $f" || { echo "FAIL: $f"; exit 1; }
+            node --check "$f" 2>&1 && echo "OK: $f" || { echo "FAIL: $f"; exit 1; }
           done
 
   # ===========================================================================
