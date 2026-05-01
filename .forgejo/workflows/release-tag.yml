@@ -1,0 +1,9 @@
+# Auto-tag release caller (Forgejo 15+).
+name: Auto-tag release
+on:
+  push:
+    branches: [main]
+jobs:
+  tag:
+    uses: matteocervelli/adlimen-cicd/.forgejo/workflows/release-tag.yml@v2.2.3
+    secrets: inherit

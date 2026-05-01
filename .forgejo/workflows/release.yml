@@ -1,0 +1,9 @@
+# Release caller for adlimen-tokens (Forgejo 15+).
+name: Release
+on:
+  push:
+    tags: ["v*.*.*"]
+jobs:
+  release:
+    uses: matteocervelli/adlimen-cicd/.forgejo/workflows/release.yml@v2.2.3
+    secrets: inherit

@@ -22,9 +22,6 @@ on:
     tags: ["v*.*.*"]
 
 jobs:
-  # ===========================================================================
-  # 1. PUBLISH
-  # ===========================================================================
   publish:
     runs-on: node-light
 
@@ -49,7 +46,6 @@ jobs:
             exit 1
           fi
           echo "✅ Version match: ${PKG_VERSION}"
-          # Skip if already in registry (idempotent on tag retrigger)
           ENCODED=$(python3 -c "import urllib.parse,sys; print(urllib.parse.quote(sys.argv[1], safe=''))" "${PKG_NAME}")
           STATUS=$(curl -s -o /dev/null -w "%{http_code}" \
             "https://git.adlimen.dev/api/packages/adlimen/npm/${ENCODED}/${TAG}" \
@@ -72,9 +68,6 @@ jobs:
         if: steps.preflight.outputs.skip != 'true'
         run: npm publish
 
-  # ===========================================================================
-  # 2. NOTIFY
-  # ===========================================================================
   notify:
     needs: publish
     runs-on: ops-light
