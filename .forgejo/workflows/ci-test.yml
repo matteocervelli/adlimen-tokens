@@ -1,26 +1,11 @@
-# Tests for adlimen-tokens — Node.js built-in test runner
+# TypeScript library CI tests caller (Forgejo 15+).
 name: CI Tests
-
 on:
   push:
-    branches: [main, "feature/**", "fix/**"]
+    branches: [main, "feature/**", "fix/**", "ci/**", "chore/**"]
   pull_request:
     branches: [main]
-
 jobs:
-  test:
-    name: Unit Tests
-    runs-on: node-light
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: "20"
-
-      - name: Install dependencies
-        run: pnpm install --frozen-lockfile
-
-      - name: Run tests
-        run: pnpm test
+  tests:
+    uses: matteocervelli/adlimen-cicd/.forgejo/workflows/lib-ts-ci-test.yml@v2.2.3
+    secrets: inherit

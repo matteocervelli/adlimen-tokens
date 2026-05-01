@@ -9,7 +9,7 @@ import {
   validateNumber,
   formatPercentage,
   handleError,
-} from "../js/utils.js";
+} from "../../js/utils.js";
 
 describe("deepClone", () => {
   it("clones primitives as-is", () => {

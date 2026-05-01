@@ -1,6 +1,6 @@
 import { describe, it } from "node:test";
 import assert from "node:assert/strict";
-import { EventEmitter } from "../js/events.js";
+import { EventEmitter } from "../../js/events.js";
 
 describe("EventEmitter.on / emit", () => {
   it("fires handler when event emitted", () => {
