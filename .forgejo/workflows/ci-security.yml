@@ -9,5 +9,5 @@ on:
     - cron: "0 5 * * 1"
 jobs:
   security:
-    uses: matteocervelli/adlimen-cicd/.forgejo/workflows/security.yml@v2.2.3
+    uses: matteocervelli/adlimen-cicd/.forgejo/workflows/security.yml@v2.2.5
     secrets: inherit

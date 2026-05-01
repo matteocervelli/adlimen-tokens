@@ -5,5 +5,5 @@ on:
     branches: [main]
 jobs:
   tag:
-    uses: matteocervelli/adlimen-cicd/.forgejo/workflows/release-tag.yml@v2.2.3
+    uses: matteocervelli/adlimen-cicd/.forgejo/workflows/release-tag.yml@v2.2.5
     secrets: inherit
