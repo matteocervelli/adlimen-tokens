@@ -19,8 +19,8 @@
   "scripts": {
     "lint": "eslint js/",
     "typecheck": "node --check js/*.js",
-    "test": "node --test 'tests/unit/*.test.js'",
-    "test:coverage": "node --experimental-test-coverage --test 'tests/unit/*.test.js'"
+    "test": "node --test tests/unit/*.test.js",
+    "test:coverage": "node --experimental-test-coverage --test tests/unit/*.test.js"
   },
   "publishConfig": {
     "registry": "https://git.adlimen.dev/api/packages/adlimen/npm/"
