@@ -7,5 +7,5 @@ on:
     branches: [main]
 jobs:
   tests:
-    uses: matteocervelli/adlimen-cicd/.forgejo/workflows/lib-ts-ci-test.yml@v2.2.5
+    uses: matteocervelli/adlimen-cicd/.forgejo/workflows/lib-ts-ci-test.yml@v2.2.14
     secrets: inherit
