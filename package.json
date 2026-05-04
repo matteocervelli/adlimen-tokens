@@ -31,7 +31,7 @@
   },
   "author": "Matteo Cervelli",
   "devDependencies": {
-    "eslint": "^9.0.0",
-    "eslint-plugin-security": "^3.0.0"
+    "eslint": "^10.3.0",
+    "eslint-plugin-security": "^4.0.0"
   }
 }
