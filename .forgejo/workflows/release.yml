@@ -5,5 +5,5 @@ on:
     tags: ["v*.*.*"]
 jobs:
   release:
-    uses: matteocervelli/adlimen-cicd/.forgejo/workflows/release.yml@v2.3.16
+    uses: matteocervelli/adlimen-cicd/.forgejo/workflows/release.yml@v2.3.17
     secrets: inherit
