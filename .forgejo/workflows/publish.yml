@@ -5,5 +5,5 @@ on:
     tags: ["v*.*.*"]
 jobs:
   publish:
-    uses: matteocervelli/adlimen-cicd/.forgejo/workflows/npm-publish.yml@v2.2.14
+    uses: matteocervelli/adlimen-cicd/.forgejo/workflows/npm-publish.yml@v2.3.16
     secrets: inherit
