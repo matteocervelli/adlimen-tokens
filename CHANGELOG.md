@@ -6,6 +6,15 @@ Versioning: [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+### Security
+
+- Both lockfiles now resolve the patched `js-yaml` (4.1.1 → 4.3.1) and `brace-expansion`
+  (1.1.14 → 1.1.18). Both arrive through ESLint and are development-only, so the published
+  package is unchanged: it still ships 11 files and declares no runtime dependencies.
+  `pnpm audit` goes from 5 high + 1 moderate to clean, `npm audit` from 2 high to clean.
+  No override was needed — the existing ranges already admitted the patched versions and
+  only the pinned lockfile entries were holding them back.
+
 ## [0.1.0] - 2026-03-16
 
 ### Added
