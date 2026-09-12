@@ -1,9 +1,18 @@
-# Auto-tag release caller (Forgejo 15+).
-name: Auto-tag release
+# CN7 preparation: no new legacy tags or releases are created by this owner.
+name: Auto-tag release (disabled)
 on:
   push:
     branches: [main]
+  workflow_dispatch:
+    inputs:
+      reason:
+        description: "Why this disabled route was inspected"
+        required: false
+        type: string
+permissions: {}
 jobs:
-  tag:
-    uses: matteocervelli/adlimen-cicd/.forgejo/workflows/release-tag.yml@v2.3.17
-    secrets: inherit
+  tagging-disabled:
+    runs-on: ops-light
+    steps:
+      - name: Explain disabled route
+        run: 'echo "CN7: legacy tagging is disabled; use the UI workspace route."'

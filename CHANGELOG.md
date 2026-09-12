@@ -6,8 +6,15 @@ Versioning: [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+### Changed
+
+- Disable standalone tag, release, and npm publication routes while the forwarding package moves
+  through its CN7 stable window. Canonical releases continue from `adlimen-ui` under `tokens/v*`.
+
 ### Security
 
+- Advance the development-only `js-yaml` lockfile resolution from 4.3.1 to 4.3.2 for
+  CVE-2026-84375. Package source, exports, runtime dependencies, and packed contents are unchanged.
 - Both lockfiles now resolve the patched `js-yaml` (4.1.1 → 4.3.1) and `brace-expansion`
   (1.1.14 → 1.1.18). Both arrive through ESLint and are development-only, so the published
   package is unchanged: it still ships 11 files and declares no runtime dependencies.
