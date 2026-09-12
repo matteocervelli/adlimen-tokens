@@ -9,7 +9,8 @@ This repository is a raw-source design token package for Ad Limen Hugo projects.
 - `js/events.js`, `js/storage.js`, and `js/utils.js` expose native ESM helpers.
 - `js/*.d.ts` contains TypeScript declarations for the JS modules.
 - `docs/user-guide/` contains user-facing usage and API documentation.
-- `.forgejo/workflows/` contains CI and private NPM publish workflows.
+- `.forgejo/workflows/` contains CI plus manual no-op records for the disabled standalone
+  tag, release, and NPM publishing routes.
 
 Keep package entry points aligned with the `exports` map in `package.json`.
 
@@ -50,7 +51,7 @@ Update `.d.ts` files and docs whenever exported JS APIs change.
 
 Git history uses Conventional Commits, for example `fix(ci): ...`, `chore: ...`, and `fix(types): ...`. Keep commits scoped and descriptive.
 
-Pull requests should include the purpose, changed public tokens or exports, validation commands run, and any consumer impact. Link related issues when available. For releases, update `package.json` version and tag with `v0.x.y`; publish runs only from semver tags.
+Pull requests should include the purpose, changed public tokens or exports, validation commands run, and any consumer impact. Link related issues when available. Do not version, tag, release, or publish this standalone package. Canonical releases come from `adlimen-ui/packages/tokens` under the `@adlimen/tokens` coordinate and `tokens/v*` tags.
 
 ## Security & Configuration Tips
 

@@ -2,6 +2,10 @@
 
 Shared Ad Limen design tokens — SCSS color palette, CSS custom properties, and core JS utilities for Hugo projects.
 
+> This repository is the preserved standalone compatibility source. New consumers use
+> `@adlimen/tokens` from the canonical `adlimen-ui/packages/tokens` workspace. Standalone tags,
+> releases, and npm publishing are disabled while the compatibility lifecycle is observed.
+
 ## Contents
 
 | Path                        | Description                                                                             |

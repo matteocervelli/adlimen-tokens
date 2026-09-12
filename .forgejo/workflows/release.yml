@@ -1,9 +1,16 @@
-# Release caller for adlimen-tokens (Forgejo 15+).
-name: Release
+# CN7 preparation: preserve historical releases, but do not create new ones here.
+name: Release (disabled)
 on:
-  push:
-    tags: ["v*.*.*"]
+  workflow_dispatch:
+    inputs:
+      reason:
+        description: "Why this disabled route was inspected"
+        required: false
+        type: string
+permissions: {}
 jobs:
-  release:
-    uses: matteocervelli/adlimen-cicd/.forgejo/workflows/release.yml@v2.3.17
-    secrets: inherit
+  release-disabled:
+    runs-on: ops-light
+    steps:
+      - name: Explain disabled route
+        run: 'echo "CN7: legacy releases are disabled; historical tags remain immutable."'

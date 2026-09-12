@@ -18,6 +18,7 @@ Shared design tokens library for the Ad Limen ecosystem. Used by Hugo static sit
 
 ## Conventions
 
-- Version bumps: update `package.json` version and tag (`v0.x.y`)
+- Do not version or tag this standalone compatibility repository. Canonical releases come from
+  `adlimen-ui/packages/tokens` as `@adlimen/tokens` under `tokens/v*` tags.
 - SCSS files use `//` comments (valid SCSS, not plain CSS)
 - Language: English in all new code and comments

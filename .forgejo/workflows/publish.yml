@@ -1,9 +1,17 @@
-# TypeScript library NPM publish caller (Forgejo 15+).
-name: NPM Publish
+# CN7 preparation: the standalone legacy owner no longer publishes releases.
+# Keep this manual no-op until the compatibility alias has a proven stable window.
+name: NPM Publish (disabled)
 on:
-  push:
-    tags: ["v*.*.*"]
+  workflow_dispatch:
+    inputs:
+      reason:
+        description: "Why this disabled route was inspected"
+        required: false
+        type: string
+permissions: {}
 jobs:
-  publish:
-    uses: matteocervelli/adlimen-cicd/.forgejo/workflows/npm-publish.yml@v2.3.17
-    secrets: inherit
+  publishing-disabled:
+    runs-on: ops-light
+    steps:
+      - name: Explain disabled route
+        run: 'echo "CN7: legacy publishing is disabled; use the UI workspace route."'
