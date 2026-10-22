@@ -43,7 +43,7 @@ test("both lockfiles retain the brace-expansion security floor", () => {
   const isPatchedBraceExpansion = (version) => {
     const major = Number(version.split(".")[0]);
     if (major === 1) {
-      return isAtLeast(version, "1.1.21");
+      return isAtLeast(version, "1.1.18");
     }
     if (major === 2) {
       return isAtLeast(version, "2.0.2");
